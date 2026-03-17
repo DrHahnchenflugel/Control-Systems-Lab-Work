@@ -1,0 +1,38 @@
+clc;
+data = load('/home/student2/a37krish/coe639/lab3/f1.dat');
+
+t = data(:,1);
+goal = data(:,2);
+pos = data(:,3);
+
+final_value = goal(end);
+
+max_val = max(pos);
+percentOS = ((max_val - final_value) / final_value) * 100;
+
+y10 = 0.1 * final_value;
+y90 = 0.9 * final_value;
+
+t10 = t(find(pos >= y10,1));
+t90 = t(find(pos >= y90,1));
+
+rise_time = t90 - t10;
+
+upper = 1.02 * final_value;
+lower = 0.98 * final_value;
+
+settling_time = t(end);
+for i = 1:length(pos)
+    if all(pos(i:end) <= upper & pos(i:end) >= lower)
+        settling_time = t(i);
+        break
+    end
+end
+
+steady_state = pos(end);
+ss_error = abs(final_value - steady_state) / final_value * 100;
+
+fprintf('Percent Overshoot: %.2f %%\n', percentOS);
+fprintf('Rise Time: %.4f s\n', rise_time);
+fprintf('Settling Time: %.4f s\n', settling_time);
+fprintf('Steady State Error: %.2f %%\n', ss_error);

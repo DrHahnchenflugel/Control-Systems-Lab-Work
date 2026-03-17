@@ -1,0 +1,28 @@
+f1: sq in, PART 1
+f2: PART 2, k = 10
+f3: PART 2, k = 0.1
+f4: PART 2, k = 5
+f5: ..., k = 2.5
+f6: P, k = 3.5
+f7: P, k = 3
+
+PID:
+g1: std PID, kP = 8.6726, Ti = 0.0565, Td = 0.0141
+g2: std PID, kP = 1, Ti = 10e10, Td = 0
+g3: std PID, kP = 50, Ti = 10e10, Td = 0 > PERSISTENT kU = 50, tau_U = 0.06s
+g4: std PID, kP = 25, Ti = 10e10, Td = 0
+g5: std PID, kP = 12.5, Ti = 10e10, Td = 0
+ziegler-nichols:
+g6: std PID, kP = 30, Ti = 0.03s, Td = 0.0075
+trial+error:
+g8: sq in, std PID, kP = 3, Ti = 10e10s, Td = 0
+g9: sq in, std PID, kP = 3, Ti = 10e10s, Td = 0.05
+g10: sq in, std PID, kP = 3, Ti = 10e10s, Td = 0.005
+g11: sq in, std PID, kP = 3, Ti = 10e10s, Td = 0.01
+g12: sq in, std PID, kP = 7, Ti = 10e10s, Td = 0.01
+g13: sq in, std PID, kP = 25, Ti = 10e10s, Td = 0.01 < CHOOSE THIS FOR PID
+g14: sq in, std PID, kP = 100, Ti = 10e10s, Td = 0.01
+
+
+
+
